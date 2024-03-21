@@ -5,12 +5,17 @@
   "main": "",
   "scripts": {
     "prepare": "husky",
+    "format": "gofumpt -l -w .",
+    "format:check": "gofumpt -l",
     "test": "gotest -v ./..."
   },
-  "keywords": ["lsp", "golang"],
+  "keywords": [
+    "lsp",
+    "golang"
+  ],
   "author": "AlejandroSuero",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "husky": "9.0.11"
   }
 }
