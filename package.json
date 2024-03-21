@@ -1,0 +1,16 @@
+{
+  "name": "lsp-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "prepare": "husky",
+    "test": "gotest -v ./..."
+  },
+  "keywords": ["lsp", "golang"],
+  "author": "AlejandroSuero",
+  "license": "MIT",
+  "dependencies": {
+    "husky": "9.0.11"
+  }
+}
