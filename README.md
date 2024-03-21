@@ -10,7 +10,32 @@ which in turn can support multiple languages with minimal effort.
 
 [More information about it...](https://microsoft.github.io/language-server-protocol/)
 
-## What is this practice about?
+## Index
+
+- [Setup](#setup)
+- [What is this practice about?](#what-is-this-practice-about%3F)
+
+### Setup
+
+Create a fork of this repository and clone it locally
+
+```bash
+git clone https://github.com/<username>/lsp-practice # or us git ssh
+# or with gh-cli
+gh repo clone <username>/lsp-practice
+```
+
+Install dependencies
+
+```bash
+npm install # or pnpm/yarn/bun ...
+```
+
+```bash
+go install mvdan.cc/gofumpt@latest
+```
+
+### What is this practice about?
 
 Implementing and getting to know the ins and outs of this protocol, to get an lsp
 for [HTMX](https://htmx.org/) in as many editors as it can be.
