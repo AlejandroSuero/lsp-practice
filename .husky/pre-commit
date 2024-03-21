@@ -1,1 +1,2 @@
+pnpm exec commitlint --edit
 pnpm run format:check
