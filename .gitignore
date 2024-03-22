@@ -31,3 +31,6 @@ pnpm-lock.yaml
 
 # log files
 logs/
+
+# built file
+main
