@@ -28,3 +28,6 @@ pnpm-lock.yaml
 
 # null-ls
 .null-ls*
+
+# log files
+logs/
