@@ -2,8 +2,9 @@
   "name": "lsp-practice",
   "version": "1.0.0",
   "description": "",
-  "main": "",
+  "main": "main.go",
   "scripts": {
+    "start": "go run main.go",
     "prepare": "husky",
     "format": "gofumpt -l -w .",
     "format:check": "gofumpt -l",
