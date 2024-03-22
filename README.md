@@ -28,11 +28,44 @@ gh repo clone <username>/lsp-practice
 Install dependencies
 
 ```bash
-npm install # or pnpm/yarn/bun ...
+go install mvdan.cc/gofumpt@latest
 ```
 
 ```bash
-go install mvdan.cc/gofumpt@latest
+npm install # or pnpm/yarn/bun ...
+npm build # or pnpm/yarn/bun ...
+# manually
+go build main.go
+```
+
+Make a connection to your client, in my case NeoVim:
+
+```bash
+cd <neovim-config>
+touch after/plugin/load_lsp_practice.lua
+```
+
+```lua
+local client = vim.lsp.start_client({
+    name = "lsp_practice",
+    cmd = "path/to/your/lsp-practice/main",
+    on_attach = function(client, bufnr)
+        -- your on_attach behaviour, mappings, client capabilities ...
+    end,
+})
+
+if not client then
+    -- vim.notify to show any error how
+    return
+end
+
+-- attachs client to markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.lsp.buf_attach_client(0, client)
+  end,
+})
 ```
 
 ### What is this practice about?
