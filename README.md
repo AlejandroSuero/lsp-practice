@@ -46,9 +46,15 @@ touch after/plugin/load_lsp_practice.lua
 ```
 
 ```lua
+local path_to_executable = os.getenv "HOME" .. "/dev/lsp-practice/main"
+-- check if is Windows
+if package.config:sub(1, 1) ~= "/" then
+  path_to_executable = path_to_executable .. ".exe"
+end
+
 local client = vim.lsp.start_client({
     name = "lsp_practice",
-    cmd = "path/to/your/lsp-practice/main",
+    cmd = { path_to_executable },
     on_attach = function(client, bufnr)
         -- your on_attach behaviour, mappings, client capabilities ...
     end,
