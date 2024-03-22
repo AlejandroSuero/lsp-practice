@@ -1,9 +1,8 @@
 package rpc_test
 
 import (
-	"testing"
-
 	"lsp/rpc"
+	"testing"
 )
 
 type EncodingExample struct {
@@ -20,7 +19,8 @@ func TestEncoding(t *testing.T) {
 
 func TestDecoding(t *testing.T) {
 	incommingMessage := "Content-Length: 16\r\n\r\n{\"Method\":\"hi!\"}"
-	method, contentLength, err := rpc.DecodeMessage([]byte(incommingMessage))
+	method, content, err := rpc.DecodeMessage([]byte(incommingMessage))
+	contentLength := len(content)
 	if err != nil {
 		t.Fatal(err)
 	}
