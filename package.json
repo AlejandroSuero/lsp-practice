@@ -5,6 +5,7 @@
   "main": "main.go",
   "scripts": {
     "start": "go run main.go",
+    "build": "go build main.go",
     "prepare": "husky",
     "format": "gofumpt -l -w .",
     "format:check": "gofumpt -l",
