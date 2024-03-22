@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"log"
 	"lsp/rpc"
 	"os"
@@ -24,6 +25,13 @@ func getLogger(filename string) *log.Logger {
 	pwd, err := os.Getwd()
 	if err != nil {
 		panic(err)
+	}
+	path := pwd + "/logs"
+	if _, err := os.Stat(path); errors.Is(err, os.ErrNotExist) {
+		err := os.Mkdir(path, os.ModePerm)
+		if err != nil {
+			log.Println(err)
+		}
 	}
 	logfile, err := os.OpenFile(pwd+filename, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0666)
 	if err != nil {
