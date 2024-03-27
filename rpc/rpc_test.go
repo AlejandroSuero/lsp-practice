@@ -1,8 +1,9 @@
 package rpc_test
 
 import (
-	"lsp/rpc"
 	"testing"
+
+	"lsp/rpc"
 )
 
 type EncodingExample struct {
