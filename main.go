@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	logger := getLogger("/logs/log.txt")
+	logger := getLogger("log.txt")
 	logger.Println("Logger started")
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Split(rpc.Split)
@@ -44,18 +44,17 @@ func handleMessage(logger *log.Logger, method string, content []byte) {
 }
 
 func getLogger(filename string) *log.Logger {
-	pwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
+	path := os.Getenv("HOME") + "/lsp-practice-logs"
+	if path == "" {
+		panic("Enviroment variable 'HOME' is not set")
 	}
-	path := pwd + "/logs"
 	if _, err := os.Stat(path); errors.Is(err, os.ErrNotExist) {
 		err := os.Mkdir(path, os.ModePerm)
 		if err != nil {
 			log.Println(err)
 		}
 	}
-	logfile, err := os.OpenFile(pwd+filename, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0666)
+	logfile, err := os.OpenFile(path+"/"+filename, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0666)
 	if err != nil {
 		panic("hey, this is not a good file my guy")
 	}
