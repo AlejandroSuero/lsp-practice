@@ -23,9 +23,6 @@ go.work
 # Heaviest thing in the universe
 node_modules/
 
-# lock
-pnpm-lock.yaml
-
 # null-ls
 .null-ls*
 
